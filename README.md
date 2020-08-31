@@ -2,8 +2,8 @@
 
 ## 一、系统架构图如下
 
-<img src="./design-diagram.drawio.png"/>
-
+<!-- <img src="./design-diagram.drawio.png"/> -->
+![系统结构图](./design-diagram.drawio.png)
 ### 系统目录
 
 blog
