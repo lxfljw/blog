@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "tree-node-cli": "^1.4.0"
+  }
+}
