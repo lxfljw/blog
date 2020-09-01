@@ -14,6 +14,10 @@ module.exports = {
         include: path.join(__dirname, "../src"),
         exclude: /node_modules/,
       },
+      {
+        test: /\.s[c|a]ss$/,
+        use: ["style-loader", "css-loader", "sass-loader"],
+      },
     ],
   },
   plugins: [
