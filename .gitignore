@@ -1,8 +1,2 @@
 .gitignore
-/node_modules/
-/admin/node_modules/
-/admin/static/node_modules/
-/admin/server/node_modules/
-/front/node_modules/
-/front/static/node_modules/
-/front/server/node_modules/
+node_modules/
