@@ -1,5 +1,10 @@
 # blog 博客系统项目
 
+```md
+启动管理后台前端
+npm run admin-static
+```
+
 ## 一、系统架构图如下
 
 <img src="./design-diagram.drawio.png"/>
