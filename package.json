@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "admin-static": "cd admin/static && webpack-dev-server --config build/webpack.dev.js"
+  },
   "devDependencies": {
     "tree-node-cli": "^1.4.0"
   }
