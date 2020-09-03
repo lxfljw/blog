@@ -1,11 +1,22 @@
 import React from "react";
 import "./app.scss";
-export const a = 1;
+import { Switch, HashRouter as Router, Link, Route } from "react-router-dom";
+import Home from "@/pages/home";
 export default function App() {
   return (
     <div className="app">
-      <p>这是App组件!</p>
-      <p>这是APP2</p>
+      <Router>
+        <Link to="/home">首页</Link>
+        <Switch>
+          <Route path="/home" component={Home}></Route>
+          <Route exact path="/">
+            {" "}
+            <p>这是App组件!</p>
+            <p>这是APP2</p>
+          </Route>
+          <Route path="*">404</Route>
+        </Switch>
+      </Router>
     </div>
   );
 }
