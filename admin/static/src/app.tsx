@@ -12,7 +12,9 @@ export default function App() {
           <Route path="/home" component={Home}></Route>
           <Route exact path="/">
             {" "}
-            <p>这是App组件!</p>
+            <p>这是App组件!</p>get propertyName() {
+              return this.;
+            }
             <p>这是App组件!</p>
             <p>这是App组件!</p>
             <p>这是APP2</p>
