@@ -12,6 +12,10 @@
     "admin/**/*.ts*": [
       "eslint --fix --ext .tsx",
       "git add"
+    ],
+    "frontnihoa/**/*.ts*": [
+      "eslint --fix --ext .tsx",
+      "git add"
     ]
   },
   "devDependencies": {
