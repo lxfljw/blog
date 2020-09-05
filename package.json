@@ -1,8 +1,16 @@
 {
   "scripts": {
-    "admin-static": "cd admin/static && webpack-dev-server --config build/webpack.dev.js"
+    "admin-static": "cd admin/static && webpack-dev-server --config build/webpack.dev.js",
+    "lint": "eslint --ext .ts --ext .tsx admin/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "echo 'husky checking...' && npm run lint"
+    }
   },
   "devDependencies": {
+    "eslint": "^7.8.1",
+    "husky": "^4.2.5",
     "tree-node-cli": "^1.4.0"
   }
 }
