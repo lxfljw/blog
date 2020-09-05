@@ -9,7 +9,7 @@ npm run admin-static
 
 <img src="./design-diagram.drawio.png" style="display:block;width: 300px" />
 
-<!-- ![](./design-diagram.drawio.png) -->
+![img](https://raw.githubusercontent.com/lxfljw/blog/master/1.png)
 
 ### 系统目录
 
