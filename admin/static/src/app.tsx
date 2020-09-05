@@ -2,7 +2,7 @@ import React from "react";
 import "./app.scss";
 import { Switch, HashRouter as Router, Link, Route } from "react-router-dom";
 import Home from "@/pages/home";
-// impoer a from '../ee'
+impoer a from '../ee'
 export default function App() {
   return (
     <div className="app">
