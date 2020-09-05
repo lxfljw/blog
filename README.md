@@ -7,9 +7,13 @@ npm run admin-static
 
 ## 一、系统架构图如下
 
-<img src="./design-diagram.drawio.png" style="display:block;width: 300px" />
+_tip: 图片如果未显示, 需要在 hosts 添加如下配置_
 
-<!-- ![](./design-diagram.drawio.png) -->
+```
+199.232.68.133   raw.githubusercontent.com
+```
+
+![](./design-diagram.drawio.png)
 
 ### 系统目录
 
