@@ -50,3 +50,4 @@ tree -L 4 -I "node_modules" > tree.md
 ### commit 规范
 
 - vscode 插件 `git-commit-lint-plugin`
+- 加入了 commit 前预检查 规范代码
