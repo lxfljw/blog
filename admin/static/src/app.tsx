@@ -14,7 +14,6 @@ export default function App() {
             {" "}
             <p>这是App组件!</p>
             <p>这是App组件!</p>
-            <p>这是App组件!</p>
             <p>这是APP2</p>
             <p>这是APP2</p>
           </Route>
