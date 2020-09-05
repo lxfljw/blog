@@ -12,7 +12,7 @@ export default function App() {
           <Route path="/home" component={Home}></Route>
           <Route exact path="/">
             {" "}
-            <p>测试pre-commaasi!</p>
+            <p>测试pre-comma!</p>
             <p>这是App组件!</p>
             <p>这是App组件!</p>
             <p>这是App组件!</p>
