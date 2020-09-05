@@ -13,7 +13,6 @@ export default function App() {
           <Route exact path="/">
             {" "}
             <p>这是App组件!</p>
-            <p>这是App组件!</p>
             <p>这是APP2</p>
             <p>这是APP2</p>
           </Route>
