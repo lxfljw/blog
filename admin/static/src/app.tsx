@@ -2,7 +2,7 @@ import React from "react";
 import "./app.scss";
 import { Switch, HashRouter as Router, Link, Route } from "react-router-dom";
 import Home from "@/pages/home";
-import a from "../e1e";
+// import a from "../e1e";
 export default function App() {
   return (
     <div className="app">
@@ -14,7 +14,6 @@ export default function App() {
             {" "}
             <p>测试pre-comma!</p>
             <p>这是App组件!</p>
-            <p>这是APP2</p>
             <p>这是APP2</p>
           </Route>
           <Route path="*">404</Route>

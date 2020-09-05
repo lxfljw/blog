@@ -1,8 +1,12 @@
 {
   "scripts": {
     "admin-static": "cd admin/static && webpack-dev-server --config build/webpack.dev.js",
-    "lint": "eslint --ext .ts --ext .tsx admin/",
-    "precommit": "lint-staged"
+    "lint": "eslint --ext .ts --ext .tsx admin/"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "lint-staged": {
     "admin/**/*.tsx": [
