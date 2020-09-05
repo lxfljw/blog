@@ -7,7 +7,9 @@ npm run admin-static
 
 ## 一、系统架构图如下
 
-<img src="./design-diagram.drawio.png"/>
+<!-- <img src="./design-diagram.drawio.png"/> -->
+
+![](./design-diagram.drawio.png)
 
 ### 系统目录
 
