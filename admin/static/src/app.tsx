@@ -7,14 +7,12 @@ export default function App() {
   return (
     <div className="app">
       <Router>
-        <Link to="/home">首页</Link>
+        <Link to="/home">首页1</Link>
         <Switch>
           <Route path="/home" component={Home}></Route>
           <Route exact path="/">
             {" "}
             <p>测试pre-comma!</p>
-            <p>这是App组件!</p>
-            <p>这是App组件!</p>
             <p>这是App组件!</p>
             <p>这是APP2</p>
             <p>这是APP2</p>
