@@ -9,7 +9,7 @@
     }
   },
   "lint-staged": {
-    "admin/**/*.tsx": [
+    "admin/**/*.ts*": [
       "eslint --fix --ext .tsx",
       "git add"
     ]
