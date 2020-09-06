@@ -1,24 +1,16 @@
 import React from "react";
 import "./app.scss";
-import { Switch, HashRouter as Router, Link, Route } from "react-router-dom";
-import Home from "@/pages/home";
-// import a from "../e1e";
+// import { Switch, HashRouter as Router, Link, Route } from "react-router-dom";
+// import Home from "@/pages/home";
+// import Menu from "@/components/menu";
+import LayoutComp from "@/components/layout";
 export default function App() {
   return (
     <div className="app">
-      <Router>
-        <Link to="/home">首页1</Link>
-        <Switch>
-          <Route path="/home" component={Home}></Route>
-          <Route exact path="/">
-            {" "}
-            <p>测试pre-comma!</p>
-            <p>这是App组件!</p>
-            <p>这是APP2</p>
-          </Route>
-          <Route path="*">404</Route>
-        </Switch>
-      </Router>
+      {/* <Menu /> */}
+      <div className="layout">
+        <LayoutComp />
+      </div>
     </div>
   );
 }

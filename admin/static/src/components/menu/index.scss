@@ -1,0 +1,10 @@
+.menu-wrap {
+  height: 100vh;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  overflow: auto;
+  ul {
+    min-height: 100%;
+  }
+}
