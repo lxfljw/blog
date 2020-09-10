@@ -5,6 +5,7 @@
     "build": "webpack --config build/webpack.common.js"
   },
   "dependencies": {
+    "@ant-design/icons": "^4.2.2",
     "antd": "^4.6.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

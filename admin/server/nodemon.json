@@ -1,0 +1,5 @@
+{
+  "exec": "node -r ts-node/register src/server.ts",
+  "ext": "ts",
+  "watch": "src"
+}
