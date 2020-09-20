@@ -2,7 +2,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
-    "start": "npm run dev"
+    "start": "export NODE_ENV='development' && npm run dev"
   },
   "dependencies": {
     "koa": "^2.13.0",
