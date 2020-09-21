@@ -11,6 +11,7 @@ export default function App() {
       <Router>
         <Switch>
           <Route path="/login" component={Login}></Route>
+          <Route component={Login}></Route>
         </Switch>
       </Router>
       {/* <div className="layout">
