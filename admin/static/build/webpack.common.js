@@ -1,9 +1,18 @@
+/*
+ * @Author: luxiaofeng
+ * @Date: 2020-09-13 23:29:34
+ * @LastEditors: luxiaofeng
+ * @LastEditTime: 2020-09-21 23:15:31
+ * @Description: file content
+ */
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const NODE_ENV = process.env.NODE_ENV;
 module.exports = {
   entry: path.join(__dirname, "../src/index.tsx"),
   output: {
-    filename: "bundle.js",
+    filename: "js/[name].[hash].js",
     path: path.join(__dirname, "../dist"),
   },
   resolve: {
@@ -25,6 +34,7 @@ module.exports = {
         test: /\.less$/,
         use: [
           "style-loader",
+          // NODE_ENV === 'development' ? "css-loader" : MiniCssExtractPlugin.loader,
           "css-loader",
           "postcss-loader",
           {
@@ -37,7 +47,15 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        use: ["style-loader", "css-loader", "postcss-loader", "sass-loader"],
+        use: [
+          "style-loader",
+          // NODE_ENV === "development"
+          //   ? "css-loader"
+          //   : MiniCssExtractPlugin.loader,
+          "css-loader",
+          "postcss-loader",
+          "sass-loader",
+        ],
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
