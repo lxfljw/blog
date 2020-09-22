@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Spin, Card, Input, Button } from "antd";
 import { UserOutlined, KeyOutlined } from "@ant-design/icons";
+import "./index.scss";
 export default function Login() {
   const [loading, setLoading] = useState<boolean>(false);
   const [userName, setUserName] = useState<string>("");
