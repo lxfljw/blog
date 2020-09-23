@@ -1,17 +1,14 @@
 import React from "react";
-import { Layout, Menu } from "antd";
+import { Layout } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
   QqOutlined,
 } from "@ant-design/icons";
 import "./index.scss";
-
+import MenuList from "./menuList";
 const { Header, Sider, Content } = Layout;
-
+import MenuGen from "@/components/menu";
 export default class LayoutComp extends React.Component {
   state = {
     collapsed: false,
@@ -23,7 +20,6 @@ export default class LayoutComp extends React.Component {
     });
   };
   render() {
-    const list = new Array(15).fill(1);
     const { collapsed } = this.state;
     return (
       <Layout className="layout-wrap">
@@ -37,31 +33,7 @@ export default class LayoutComp extends React.Component {
             <QqOutlined />
             {!collapsed && "博客管理后台"}
           </div>
-          <Menu
-            className="sider-menu"
-            theme="dark"
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-          >
-            <Menu.Item key="1" icon={<UserOutlined />}>
-              nav 1
-            </Menu.Item>
-            <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-              nav 2
-            </Menu.Item>
-            <Menu.Item key="3" icon={<UploadOutlined />}>
-              nav 3
-            </Menu.Item>
-            {list.map((_, index) => (
-              <Menu.SubMenu
-                key={index}
-                title="子菜单选项"
-                icon={<VideoCameraOutlined />}
-              >
-                <Menu.Item>{index}</Menu.Item>
-              </Menu.SubMenu>
-            ))}
-          </Menu>
+          <MenuGen menuList={MenuList} />
         </Sider>
         <Layout className="layout-content">
           <Header className="header">

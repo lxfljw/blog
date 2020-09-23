@@ -1,77 +1,36 @@
 import React from "react";
 import { Menu } from "antd";
-import {
-  MailOutlined,
-  CalendarOutlined,
-  AppstoreOutlined,
-  SettingOutlined,
-  LinkOutlined,
-} from "@ant-design/icons";
 import "./index.scss";
-const { SubMenu } = Menu;
+const SubMenu = Menu.SubMenu;
+const MenuItem = Menu.Item;
+interface IProps {
+  menuList: Record<string, any>[];
+}
 
-export default class Sider extends React.Component {
-  changeMode = (value: boolean) => {
-    this.setState({
-      mode: value ? "vertical" : "inline",
-    });
-  };
-
-  changeTheme = (value: boolean) => {
-    this.setState({
-      theme: value ? "dark" : "light",
-    });
-  };
-
-  render() {
-    return (
-      <div className="menu-wrap">
-        <Menu
-          style={{ width: 256 }}
-          defaultSelectedKeys={["1"]}
-          defaultOpenKeys={["sub1"]}
-          mode="inline"
-          theme="dark"
-        >
-          <Menu.Item key="1" icon={<MailOutlined />}>
-            Navigation One
-          </Menu.Item>
-          <Menu.Item key="2" icon={<CalendarOutlined />}>
-            Navigation Two
-          </Menu.Item>
-          <SubMenu
-            key="sub1"
-            icon={<AppstoreOutlined />}
-            title="Navigation Two"
-          >
-            <Menu.Item key="3">Option 3</Menu.Item>
-            <Menu.Item key="4">Option 4</Menu.Item>
-            <SubMenu key="sub1-2" title="Submenu">
-              <Menu.Item key="5">Option 5</Menu.Item>
-              <Menu.Item key="6">Option 6</Menu.Item>
-            </SubMenu>
+/**
+ * 递归实现菜单栏
+ * @param props 
+ */
+export default function MenuGen(props: IProps) {
+  const { menuList } = props;
+  return (
+    <Menu
+      className="sider-menu"
+      theme="dark"
+      mode="inline"
+      defaultSelectedKeys={["1"]}
+    >
+      {menuList.map((menu) =>
+        menu.children ? (
+          <SubMenu key={menu.menuName} icon={menu.icon} title={menu.menuName}>
+            <MenuGen menuList={menu.children} />
           </SubMenu>
-          <SubMenu
-            key="sub2"
-            icon={<SettingOutlined />}
-            title="Navigation Three"
-          >
-            <Menu.Item key="7">Option 7</Menu.Item>
-            <Menu.Item key="8">Option 8</Menu.Item>
-            <Menu.Item key="9">Option 9</Menu.Item>
-            <Menu.Item key="10">Option 10</Menu.Item>
-          </SubMenu>
-          <Menu.Item key="link" icon={<LinkOutlined />}>
-            <a
-              href="https://ant.design"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Ant Design
-            </a>
-          </Menu.Item>
-        </Menu>
-      </div>
-    );
-  }
+        ) : (
+          <MenuItem key={menu.menuName} icon={menu.icon}>
+            {menu.menuName}
+          </MenuItem>
+        )
+      )}
+    </Menu>
+  );
 }

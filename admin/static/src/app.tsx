@@ -7,9 +7,9 @@ import {
   // Redirect,
 } from "react-router-dom";
 // import Home from "@/pages/home";
-import LayoutComp from "@/components/layout";
+// import LayoutComp from "@/components/layout";
 // import Login from "@/pages/login";
-
+import Main from './main';
 export default function App() {
   return (
     <div className="app">
@@ -19,9 +19,10 @@ export default function App() {
           <Route path="/login" component={Login} /> */}
         </Switch>
       </Router>
-      <div className="layout">
+      <Main />  
+      {/* <div className="layout">
         <LayoutComp />
-      </div>
+      </div> */}
     </div>
   );
 }
