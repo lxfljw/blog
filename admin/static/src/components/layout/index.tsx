@@ -13,7 +13,7 @@ export default class LayoutComp extends React.Component {
   state = {
     collapsed: false,
   };
-
+  // 测试自动化构建
   toggle = () => {
     this.setState({
       collapsed: !this.state.collapsed,
