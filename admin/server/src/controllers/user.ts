@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-20 15:07:04
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-07 00:17:48
+ * @LastEditTime: 2020-10-07 00:35:50
  * @Description: file content
  */
 import {Controller, GET} from '../lib/decoratorRouter'
@@ -14,7 +14,7 @@ export default class UserController {
      */
     @GET('/name')
     getName(ctx, next) {
-        ctx.body = 'luxiaofeng-全新测试3'
+        ctx.body = 'luxiaofeng-全新测试4--009'
         next()
     }
     @GET('/age')
