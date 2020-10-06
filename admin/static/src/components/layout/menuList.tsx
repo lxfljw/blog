@@ -7,7 +7,7 @@ const MenuList = [
     icon: <UserOutlined />,
   },
   {
-    menuName: "菜单99",
+    menuName: "菜单919",
     path: "",
     icon: <UserOutlined />,
   },
