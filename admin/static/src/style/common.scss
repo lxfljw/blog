@@ -1,0 +1,11 @@
+.app {
+    display: flex;
+    // overflow: hidden;
+    // 布局样式
+    .layout {
+      .ant-layout-sider {
+        min-height: 100vh;
+      }
+    }
+  }
+  

@@ -5,10 +5,11 @@ import {
   MenuFoldOutlined,
   QqOutlined,
 } from "@ant-design/icons";
-import "./index.scss";
-import MenuList from "./menuList";
+import MenuList from "@/config/menu-list";
 const { Header, Sider, Content } = Layout;
 import MenuGen from "@/components/menu";
+import RouterContent from "@/components/router-content";
+import "./index.scss";
 export default class LayoutComp extends React.Component {
   state = {
     collapsed: false,
@@ -45,7 +46,9 @@ export default class LayoutComp extends React.Component {
               }
             )}
           </Header>
-          <Content>Content</Content>
+          <Content>
+            <RouterContent />
+          </Content>
         </Layout>
       </Layout>
     );

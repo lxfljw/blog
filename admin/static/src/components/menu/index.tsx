@@ -1,9 +1,10 @@
 import React from "react";
 import { Menu } from "antd";
-import "./index.scss";
 const SubMenu = Menu.SubMenu;
 const MenuItem = Menu.Item;
-import { IMenuItem } from "@/components/layout/menuList";
+import { IMenuItem } from "@/config/menu-list";
+import { HashRouter as Router, Link } from "react-router-dom";
+import "./index.scss";
 interface IProps {
   menuList: IMenuItem[];
 }
@@ -14,14 +15,16 @@ interface IProps {
 export default function MenuGen(props: IProps) {
   const { menuList } = props;
   const renderTreeNode = (menuList: IMenuItem[]) =>
-    menuList.map(menu =>
+    menuList.map((menu) =>
       menu.children ? (
         <SubMenu key={menu.key} icon={menu.icon} title={menu.menuName}>
           {renderTreeNode(menu.children)}
         </SubMenu>
       ) : (
         <MenuItem key={menu.key} icon={menu.icon}>
-          {menu.menuName}
+          <Router>
+            <Link to={menu.path}>{menu.menuName}</Link>
+          </Router>
         </MenuItem>
       )
     );
@@ -37,4 +40,3 @@ export default function MenuGen(props: IProps) {
     </Menu>
   );
 }
-

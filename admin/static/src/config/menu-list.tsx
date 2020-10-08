@@ -9,10 +9,10 @@ export interface IMenuItem {
 }
 const MenuList: IMenuItem[] = [
   {
-    menuName: "菜单1",
-    path: "12",
+    menuName: "写博客",
+    path: "/writeBlog",
     icon: <UserOutlined />,
-    key: 1,
+    key: 'writeBlog',
   },
   {
     menuName: "菜单919",
