@@ -1,8 +1,8 @@
 {
   "scripts": {
     "start": "npm run dev",
-    "dev": "cross-env NODE_ENV='development' webpack-dev-server --config build/webpack.dev.js",
-    "build": "webpack --config build/webpack.prod.js"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --config build/webpack.dev.js",
+    "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js"
   },
   "dependencies": {
     "@ant-design/icons": "^4.2.2",

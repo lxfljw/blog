@@ -3,16 +3,29 @@ import { Menu } from "antd";
 import "./index.scss";
 const SubMenu = Menu.SubMenu;
 const MenuItem = Menu.Item;
+import { IMenuItem } from "@/components/layout/menuList";
 interface IProps {
-  menuList: Record<string, any>[];
+  menuList: IMenuItem[];
 }
-
 /**
  * 递归实现菜单栏
- * @param props 
+ * @param props
  */
 export default function MenuGen(props: IProps) {
   const { menuList } = props;
+  const renderTreeNode = (menuList: IMenuItem[]) =>
+    menuList.map(menu =>
+      menu.children ? (
+        <SubMenu key={menu.key} icon={menu.icon} title={menu.menuName}>
+          {renderTreeNode(menu.children)}
+        </SubMenu>
+      ) : (
+        <MenuItem key={menu.key} icon={menu.icon}>
+          {menu.menuName}
+        </MenuItem>
+      )
+    );
+
   return (
     <Menu
       className="sider-menu"
@@ -20,17 +33,8 @@ export default function MenuGen(props: IProps) {
       mode="inline"
       defaultSelectedKeys={["1"]}
     >
-      {menuList.map((menu) =>
-        menu.children ? (
-          <SubMenu key={menu.menuName} icon={menu.icon} title={menu.menuName}>
-            <MenuGen menuList={menu.children} />
-          </SubMenu>
-        ) : (
-          <MenuItem key={menu.menuName} icon={menu.icon}>
-            {menu.menuName}
-          </MenuItem>
-        )
-      )}
+      {renderTreeNode(menuList)}
     </Menu>
   );
 }
+

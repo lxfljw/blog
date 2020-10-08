@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-15 22:39:55
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-09-21 00:22:04
+ * @LastEditTime: 2020-10-07 19:45:30
  * @Description:  路由装饰器工厂
  */
 
@@ -48,14 +48,14 @@ export function Controller(modulePrefix: string) {
 
 /**
  * 公用请求函数
- * @param url f
+ * @param url
  * @param method
  */
 function Request(url, method) {
   // 类中定义的处理函数 参数分别为 构造函数, 属性名 描述器
   // @ts-ignore
   return function (constructor, atrtibute, desc) {
-    const hanlder = desc.value
+    const hanlder = desc.value;
     desc.value =  function (router, target) {
       // class如果有前置装饰器
       // const beforeDec = target.__before
@@ -76,17 +76,17 @@ function Request(url, method) {
 }
 
 export function GET(url) {
-  return Request(url, RequestMethod.GET)
+  return Request(url, RequestMethod.GET);
 }
 export function POST(url) {
-  return Request(url, RequestMethod.GET)
+  return Request(url, RequestMethod.GET);
 }
 export function PUT(url) {
-  return Request(url, RequestMethod.GET)
+  return Request(url, RequestMethod.GET);
 }
 export function DELETE(url) {
-  return Request(url, RequestMethod.GET)
+  return Request(url, RequestMethod.GET);
 }
 export function ALL(url) {
-  return Request(url, RequestMethod.GET)
+  return Request(url, RequestMethod.GET);
 }
