@@ -9,7 +9,7 @@
     }
     .write-area {
         .write-area-blog-title {
-            // font-size: 30px;
+            font-size: 30px;
             font-weight: bold;
         }
         .input-area {
@@ -21,7 +21,8 @@
         .view-area-blog-title {
             width: 100%;
             text-align: center;
-            // font-size: 30px;
+            height: 50px;
+            font-size: 30px;
             font-weight: bold;
         }
     }

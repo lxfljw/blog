@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-10-08 16:42:04
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-08 22:21:49
+ * @LastEditTime: 2020-10-08 22:27:09
  * @Description: 编写博客页面
  */
 
@@ -56,13 +56,13 @@ export default function WriteBlog() {
           value={blogContent}
           className="input-area"
           onInput={(e) => handleSetBlogContent(e.currentTarget.value)}
+          placeholder="请输入博客内容, 支持markdown"
         />
       </section>
       {/* 预览区域 */}
       <section className="view-area area-item">
         <div className="view-area-blog-title">{blogTitle}</div>
         <div dangerouslySetInnerHTML={{ __html: marked(blogContent) }}></div>
-        <h1>88</h1>
       </section>
     </div>
   );
