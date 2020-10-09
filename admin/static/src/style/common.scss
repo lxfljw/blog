@@ -1,11 +1,13 @@
 .app {
-    display: flex;
-    // overflow: hidden;
-    // 布局样式
-    .layout {
-      .ant-layout-sider {
-        min-height: 100vh;
-      }
+  display: flex;
+  // overflow: hidden;
+  // 布局样式
+  .layout {
+    .ant-layout-sider {
+      min-height: 100vh;
     }
   }
-  
+  :-webkit-any(article, aside, nav, section) h1 {
+    font-size: 1.8em;
+  }
+}

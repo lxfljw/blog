@@ -10,21 +10,22 @@ import React, { useState } from "react";
 import marked from "marked";
 import { Input } from "antd";
 const { TextArea } = Input;
+import "highlight.js/styles/atom-one-dark.css";
 // import 'highlight.js/styles/monokai-sublime.css';
 import "./index.scss";
-// marked.setOptions({
-//   renderer: new marked.Renderer(),
-//   highlight: function (code) {
-//     return require("highlight.js").highlightAuto(code).value;
-//   },
-//   pedantic: false,
-//   gfm: true,
-//   breaks: false,
-//   sanitize: false,
-//   smartLists: true,
-//   smartypants: false,
-//   xhtml: false,
-// });
+marked.setOptions({
+  renderer: new marked.Renderer(),
+  highlight: function (code, language) {
+    const hljs = require("highlight.js");
+    const validLanguage = hljs.getLanguage(language) ? language : "javascript";
+    return hljs.highlight(validLanguage, code).value;
+  },
+  gfm: true,
+  breaks: false,
+  pedantic: false,
+  sanitize: false,
+  smartLists: true,
+});
 export default function WriteBlog() {
   const [blogTitle, setBlogTitle] = useState("");
   const [blogContent, setBlogContent] = useState("");

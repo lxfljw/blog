@@ -34,7 +34,7 @@ export default function MenuGen(props: IProps) {
       className="sider-menu"
       theme="dark"
       mode="inline"
-      defaultSelectedKeys={["1"]}
+      defaultSelectedKeys={["writeBlog"]}
     >
       {renderTreeNode(menuList)}
     </Menu>
