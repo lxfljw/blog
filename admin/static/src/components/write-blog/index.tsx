@@ -2,17 +2,19 @@
  * @Author: luxiaofeng
  * @Date: 2020-10-08 16:42:04
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-08 22:27:09
+ * @LastEditTime: 2020-10-14 23:21:37
  * @Description: 编写博客页面
  */
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import marked from "marked";
 import { Input } from "antd";
 const { TextArea } = Input;
 import "highlight.js/styles/atom-one-dark.css";
 // import 'highlight.js/styles/monokai-sublime.css';
+import { getBlogList } from "@/api/write-blog";
 import "./index.scss";
+
 marked.setOptions({
   renderer: new marked.Renderer(),
   highlight: function (code, language) {
@@ -29,6 +31,13 @@ marked.setOptions({
 export default function WriteBlog() {
   const [blogTitle, setBlogTitle] = useState("");
   const [blogContent, setBlogContent] = useState("");
+  const init = async () => {
+    const res = await getBlogList();
+    console.log(res);
+  };
+  useEffect(() => {
+    init();
+  }, []);
   /**
    *
    * @param e 设置文章标题

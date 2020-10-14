@@ -3,7 +3,7 @@ import { Layout } from "antd";
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  QqOutlined,
+  UserOutlined
 } from "@ant-design/icons";
 import MenuList from "@/config/menu-list";
 const { Header, Sider, Content } = Layout;
@@ -31,7 +31,7 @@ export default class LayoutComp extends React.Component {
           collapsed={collapsed}
         >
           <div className="logo">
-            <QqOutlined />
+            <UserOutlined />
             {!collapsed && "博客管理后台"}
           </div>
           <MenuGen menuList={MenuList} />

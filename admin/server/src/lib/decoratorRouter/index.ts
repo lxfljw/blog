@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-15 22:39:55
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-07 19:45:30
+ * @LastEditTime: 2020-10-14 22:22:02
  * @Description:  路由装饰器工厂
  */
 
@@ -34,8 +34,8 @@ export function Controller(modulePrefix: string) {
     //  返回指定对象的所有自有属性
     const actionList = Object.getOwnPropertyDescriptors(Target.prototype);
     // 所有的方法
-    
-    Object.keys(actionList).forEach(k => {
+
+    Object.keys(actionList).forEach((k) => {
       if (k === "constructor") return;
       const action = actionList[k];
       const fn = action.value;
@@ -56,11 +56,11 @@ function Request(url, method) {
   // @ts-ignore
   return function (constructor, atrtibute, desc) {
     const hanlder = desc.value;
-    desc.value =  function (router, target) {
+    desc.value = function (router, target) {
       // class如果有前置装饰器
       // const beforeDec = target.__before
-      console.log(router.controllerPrefix + url);
-      
+      console.log("", url);
+
       router[method](
         router.controllerPrefix + url,
         async (ctx: Context, next: Next) => {
@@ -90,3 +90,5 @@ export function DELETE(url) {
 export function ALL(url) {
   return Request(url, RequestMethod.GET);
 }
+
+export default router;
