@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-10-11 19:41:43
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-14 23:16:03
+ * @LastEditTime: 2020-10-16 00:14:36
  * @Description: file content
  */
 import { Controller, GET } from "../lib/decoratorRouter";
@@ -12,13 +12,13 @@ export default class UserController {
   /**
    * 获取名字
    */
-  // @GET("/:articleid")
+  // @GET("/add")
   // getName(ctx, next) {
   //   Article.create(
   //     {
-  //       title: "文章1",
+  //       title: "认真学习前端的几点建议",
   //       author: "lxf",
-  //       content: "内容这是哈哈哈哈和00",
+  //       content: "# 1.xxx \n * 认真 \n * 努力 \n * 专注",
   //     },
   //     (err, doc) => {
   //       console.log("dsf");
@@ -32,7 +32,17 @@ export default class UserController {
   // }
   @GET("/list")
   async articleList(ctx, next) {
+    console.log(Article);
+
     const data = await Article.find({});
+    ctx.body = { data, statusCode: 1, code: 200, err: null };
+    next();
+  }
+  @GET("/:articleId")
+  async getArticleById(ctx, next) {
+    console.log(Article);
+
+    const data = await Article.find({ _id: ctx.params.articleId });
     ctx.body = { data, statusCode: 1, code: 200, err: null };
     next();
   }

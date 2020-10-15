@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-20 18:54:38
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-14 23:54:33
+ * @LastEditTime: 2020-10-16 00:21:59
  * @Description: 加载控制器的路由
  */
 
@@ -18,6 +18,10 @@ export default function loadRouter(app) {
     const files = fs.readdirSync(path);
     files.forEach((file) => {
       const filePath = resolve(path, file);
+      // @ts-ignore
+      const target = require(filePath);
+      // console.log(target.router);
+      target;
       if (fs.lstatSync(filePath).isDirectory()) {
         loadController(filePath);
       } else {
@@ -26,5 +30,6 @@ export default function loadRouter(app) {
     });
   };
   loadController(controllerPath);
+  console.log("路由器", router.routes());
   app.use(router.routes());
 }

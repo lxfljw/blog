@@ -1,7 +1,8 @@
 {
   "scripts": {
     "postinstall": "cd admin/static && cnpm i",
-    "admin-static:dev": "cd admin/static && npm start",
+    "admin-static": "cd admin/static && npm start",
+    "admin-server": "cd admin/server && npm start",
     "admin-static:build": "cd admin/static && npm run build",
     "lint": "eslint --ext .ts --ext .tsx admin/"
   },

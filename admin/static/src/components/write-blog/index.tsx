@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-10-08 16:42:04
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-14 23:21:37
+ * @LastEditTime: 2020-10-16 00:20:20
  * @Description: 编写博客页面
  */
 
@@ -12,7 +12,7 @@ import { Input } from "antd";
 const { TextArea } = Input;
 import "highlight.js/styles/atom-one-dark.css";
 // import 'highlight.js/styles/monokai-sublime.css';
-import { getBlogList } from "@/api/write-blog";
+import { getBlogList, getBlogById } from "@/api/write-blog";
 import "./index.scss";
 
 marked.setOptions({
@@ -33,7 +33,12 @@ export default function WriteBlog() {
   const [blogContent, setBlogContent] = useState("");
   const init = async () => {
     const res = await getBlogList();
-    console.log(res);
+    const id = "5f88755fdf142d27d7ff61ec";
+    const res1 = await getBlogById(id);
+    const { title, content } = res1.data.data[0];
+    setBlogContent(content);
+    setBlogTitle(title);
+    console.log(res, res1);
   };
   useEffect(() => {
     init();
