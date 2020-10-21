@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-20 18:54:38
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-16 00:21:59
+ * @LastEditTime: 2020-10-18 12:50:12
  * @Description: 加载控制器的路由
  */
 
@@ -11,6 +11,7 @@ const { resolve } = require("path");
 const rootPath = process.env.NODE_ENV === "development" ? "src" : "dist";
 // const rootPath = 'src'
 const controllerPath = resolve(rootPath, "controllers");
+export const controllerList = [];
 // console.log(process.env.NODE_ENV+"环境:执行目录"+controllerPath, '--end')//这是controller
 import router from "../decoratorRouter";
 export default function loadRouter(app) {
@@ -21,7 +22,7 @@ export default function loadRouter(app) {
       // @ts-ignore
       const target = require(filePath);
       // console.log(target.router);
-      target;
+      controllerList.push(target);
       if (fs.lstatSync(filePath).isDirectory()) {
         loadController(filePath);
       } else {
@@ -30,6 +31,5 @@ export default function loadRouter(app) {
     });
   };
   loadController(controllerPath);
-  console.log("路由器", router.routes());
   app.use(router.routes());
 }

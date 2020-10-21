@@ -2,48 +2,36 @@
  * @Author: luxiaofeng
  * @Date: 2020-10-11 19:41:43
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-16 00:14:36
- * @Description: file content
+ * @LastEditTime: 2020-10-21 23:15:20
+ * @Description: 文章控制器
  */
-import { Controller, GET } from "../lib/decoratorRouter";
-import Article from "../models/article";
+import { Controller, GET, POST } from "../lib/decoratorRouter";
 @Controller("/article")
 export default class UserController {
   /**
-   * 获取名字
+   * 获取文章列表 需要分页
+   * @param ctx
+   * @param next
    */
-  // @GET("/add")
-  // getName(ctx, next) {
-  //   Article.create(
-  //     {
-  //       title: "认真学习前端的几点建议",
-  //       author: "lxf",
-  //       content: "# 1.xxx \n * 认真 \n * 努力 \n * 专注",
-  //     },
-  //     (err, doc) => {
-  //       console.log("dsf");
-
-  //       console.log(err, doc);
-  //     }
-  //   );
-  //   console.log(ctx.params.articleid);
-  //   ctx.body = "文章控制器";
-  //   next();
-  // }
   @GET("/list")
   async articleList(ctx, next) {
-    console.log(Article);
-
-    const data = await Article.find({});
-    ctx.body = { data, statusCode: 1, code: 200, err: null };
+    const sql = "SELECT * FROM article";
+    const result = await ctx.db.query(sql);
+    ctx.body = result;
     next();
   }
-  @GET("/:articleId")
+  /**
+   * 根据文章id获取文章
+   * @param ctx
+   * @param next
+   */
+  @POST("/one")
   async getArticleById(ctx, next) {
-    console.log(Article);
-
-    const data = await Article.find({ _id: ctx.params.articleId });
-    ctx.body = { data, statusCode: 1, code: 200, err: null };
+    console.log(ctx.request.body);
+    const { articleId } = ctx.request.body;
+    const sql = `SELECT * FROM article WHERE id=${articleId}`;
+    const result = await ctx.db.query(sql);
+    ctx.body = {data: result};
     next();
   }
 }

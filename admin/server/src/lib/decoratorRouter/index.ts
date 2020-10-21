@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-09-15 22:39:55
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-14 22:22:02
+ * @LastEditTime: 2020-10-21 22:58:05
  * @Description:  路由装饰器工厂
  */
 
@@ -59,18 +59,16 @@ function Request(url, method) {
     desc.value = function (router, target) {
       // class如果有前置装饰器
       // const beforeDec = target.__before
-      console.log("", url);
+      const api = router.controllerPrefix + url;
+      console.log("注册路由", api);
 
-      router[method](
-        router.controllerPrefix + url,
-        async (ctx: Context, next: Next) => {
-          // if (beforeDec && typeof beforeDec === 'function') {
-          //   const beforeRef = beforeDec.call(target, router, target)
+      router[method](api, async (ctx: Context, next: Next) => {
+        // if (beforeDec && typeof beforeDec === 'function') {
+        //   const beforeRef = beforeDec.call(target, router, target)
 
-          // }
-          await hanlder.call(target, ctx, next);
-        }
-      );
+        // }
+        await hanlder.call(target, ctx, next);
+      });
     };
   };
 }
@@ -79,16 +77,16 @@ export function GET(url) {
   return Request(url, RequestMethod.GET);
 }
 export function POST(url) {
-  return Request(url, RequestMethod.GET);
+  return Request(url, RequestMethod.POST);
 }
 export function PUT(url) {
-  return Request(url, RequestMethod.GET);
+  return Request(url, RequestMethod.PUT);
 }
 export function DELETE(url) {
-  return Request(url, RequestMethod.GET);
+  return Request(url, RequestMethod.DELETE);
 }
 export function ALL(url) {
-  return Request(url, RequestMethod.GET);
+  return Request(url, RequestMethod.ALL);
 }
 
 export default router;
