@@ -2,17 +2,17 @@
  * @Author: luxiaofeng
  * @Date: 2020-10-08 16:42:04
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-25 10:59:36
+ * @LastEditTime: 2020-10-25 23:51:11
  * @Description: 编写博客页面
  */
 
 import React, { useEffect, useState } from "react";
 import marked from "marked";
-import { Input } from "antd";
+import { Input, Button } from "antd";
 const { TextArea } = Input;
 import "highlight.js/styles/atom-one-dark.css";
 // import 'highlight.js/styles/monokai-sublime.css';
-import { getBlogList, getBlogById } from "@/api/write-blog";
+import { getBlogList, getBlogById, saveBlog } from "@/api/blog";
 import "./index.scss";
 
 marked.setOptions({
@@ -34,8 +34,8 @@ export default function WriteBlog() {
   const init = async () => {
     const res = await getBlogList();
     console.log(res);
-    
-    const articleId = "1";
+
+    const articleId = "4";
     const res1 = await getBlogById({ articleId });
     const { title, content } = res1.data.data[0];
     setBlogContent(content);
@@ -59,28 +59,47 @@ export default function WriteBlog() {
   const handleSetBlogContent = (value: string) => {
     setBlogContent(value);
   };
+  /**
+   * 保存博客
+   * @param e
+   */
+  const onSaveBlog = () => {
+    saveBlog({
+      blogTitle,
+      blogContent,
+      userId: "lxf",
+    });
+  };
   return (
-    <div className="write-blog-wrap">
-      {/* 输入区域 */}
-      <section className="write-area area-item">
+    <div className="content-wrap">
+      <div className="write-head">
         <Input
           value={blogTitle}
           onInput={(e) => handleSetBlogTitle(e.currentTarget.value)}
           placeholder="请输入文章标题"
           className="write-area-blog-title"
         />
-        <TextArea
-          value={blogContent}
-          className="input-area"
-          onInput={(e) => handleSetBlogContent(e.currentTarget.value)}
-          placeholder="请输入博客内容, 支持markdown"
-        />
-      </section>
-      {/* 预览区域 */}
-      <section className="view-area area-item">
-        <div className="view-area-blog-title">{blogTitle}</div>
-        <div dangerouslySetInnerHTML={{ __html: marked(blogContent) }}></div>
-      </section>
+        <Button type="primary" onClick={onSaveBlog}>
+          保存
+        </Button>
+      </div>
+      <div className="write-blog-wrap">
+        {/* 输入区域 */}
+        <div className="write-area area-item">
+          <TextArea
+            value={blogContent}
+            className="input-area"
+            onInput={(e) => handleSetBlogContent(e.currentTarget.value)}
+            placeholder="请输入博客内容, 支持markdown"
+          />
+        </div>
+        {/* 预览区域 */}
+        {/* <div className="view-area-blog-title">{blogTitle}</div> */}
+        <div
+          className="view-area area-item"
+          dangerouslySetInnerHTML={{ __html: marked(blogContent) }}
+        ></div>
+      </div>
     </div>
   );
 }

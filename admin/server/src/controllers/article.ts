@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-10-11 19:41:43
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-21 23:15:20
+ * @LastEditTime: 2020-10-25 23:51:24
  * @Description: 文章控制器
  */
 import { Controller, GET, POST } from "../lib/decoratorRouter";
@@ -31,7 +31,19 @@ export default class UserController {
     const { articleId } = ctx.request.body;
     const sql = `SELECT * FROM article WHERE id=${articleId}`;
     const result = await ctx.db.query(sql);
-    ctx.body = {data: result};
+    ctx.body = { data: result };
+    next();
+  }
+
+  @POST("/save")
+  async saveArticle(ctx, next) {
+    console.log(ctx.request.body);
+    const { blogTitle, blogContent, userId } = ctx.request.body;
+    const sql = `INSERT INTO article (title, content, user_id) VALUES ('${blogTitle}', "${blogContent}", '${userId}')`;
+    console.log(sql);
+    
+    const result = await ctx.db.query(sql);
+    ctx.body = { data: result, code: 200, status: "success" };
     next();
   }
 }

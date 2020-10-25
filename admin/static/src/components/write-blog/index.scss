@@ -1,36 +1,49 @@
-.write-blog-wrap {
-  display: flex;
-  flex-direction: row;
+.content-wrap {
   height: 100%;
-  background: #fff;
-  .area-item {
-    flex: 1;
-    // width: 50%;
-    border: 1px #e1e1e1 solid;
-    height: 100%;
+  display: flex;
+  flex-direction: column;
+  .write-head {
     display: flex;
-    flex-flow: column;
-    box-sizing: border-box;
-  }
-  .write-area {
+    align-items: center;
+    justify-content: space-around;
+    background: #fff;
     .write-area-blog-title {
       font-size: 30px;
       font-weight: bold;
-    }
-    .input-area {
-      // height: 100%;
-      flex: 1;
+      border: none;
     }
   }
-  .view-area {
-    padding: 20px;
-    .view-area-blog-title {
-      width: 100%;
-      text-align: center;
-      height: 50px;
-      font-size: 30px;
-      font-weight: bold;
-      overflow: auto;
+  .write-blog-wrap {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    height: 100%;
+    background: #fff;
+    overflow: auto;
+    .area-item {
+      flex: 1;
+      border: 1px #e1e1e1 solid;
+      height: 100%;
+      display: flex;
+      flex-flow: column;
+      box-sizing: border-box;
+    }
+    .write-area {
+      .input-area {
+        // height: 100%;
+        flex: 1;
+      }
+    }
+    .view-area {
+      padding: 20px;
+      .view-area-blog-title {
+        width: 100%;
+        text-align: center;
+        height: 50px;
+        font-size: 30px;
+        font-weight: bold;
+        overflow: auto;
+      }
     }
   }
 }
