@@ -2,7 +2,7 @@
  * @Author: luxiaofeng
  * @Date: 2020-10-08 16:42:04
  * @LastEditors: luxiaofeng
- * @LastEditTime: 2020-10-21 22:54:53
+ * @LastEditTime: 2020-10-25 10:59:36
  * @Description: 编写博客页面
  */
 
@@ -35,7 +35,7 @@ export default function WriteBlog() {
     const res = await getBlogList();
     console.log(res);
     
-    const articleId = "89893";
+    const articleId = "1";
     const res1 = await getBlogById({ articleId });
     const { title, content } = res1.data.data[0];
     setBlogContent(content);
