@@ -4,7 +4,7 @@ import CommonLayout from "@/components/layout";
 export default function App() {
   return (
     <div className="app">
-      <CommonLayout />
+      <CommonLayout theme="shallow-red" />
     </div>
   );
 }

@@ -2,10 +2,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon",
-    "start": "export NODE_ENV='development' && npm run dev"
+    "start": "npm run dev"
   },
   "dependencies": {
     "koa": "^2.13.0",
+    "koa-bodyparser": "^4.3.0",
     "koa-mysql": "^1.0.3",
     "koa-router": "^9.4.0",
     "koa-static": "^5.0.0",

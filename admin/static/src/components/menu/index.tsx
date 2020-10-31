@@ -32,7 +32,7 @@ export default function MenuGen(props: IProps) {
   return (
     <Menu
       className="sider-menu"
-      theme="dark"
+      // theme="dark"
       mode="inline"
       defaultSelectedKeys={["writeBlog"]}
     >
