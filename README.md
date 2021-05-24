@@ -17,6 +17,7 @@ _tip: 图片如果未显示, 需要在 hosts 添加如下配置_
 
 ### 系统目录
 
+```text
 blog
 ├── admin
 │ ├── package.json
@@ -28,6 +29,7 @@ blog
 │ ├── server
 │ └── static
 └── README.md
+```
 
 > -L 是确定要几级目录，-I 是排除哪个文件夹下的，tree.md
 
